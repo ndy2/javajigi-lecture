@@ -13,19 +13,7 @@
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" >
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Slipp</a>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item">
-                <a class="nav-link" href="/form">회원가입</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/list">사용자 목록</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<nav th:replace="fragment/nav :: copy"/>
 
 <h1>Hello, world!</h1>
 
