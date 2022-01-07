@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -32,10 +32,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td class="tg-c3ow">ndy</td>
-        <td class="tg-c3ow">득윤</td>
-        <td class="tg-c3ow">emrdbs12@gmail.com</td>
+    <tr th:each="member, memberStat: ${members}">
+        <td class="tg-c3ow" th:text="${member.loginId}" />
+        <td class="tg-c3ow" th:text="${member.userName}"/>
+        <td class="tg-c3ow" th:text="${member.email}"/>
     </tr>
     </tbody>
 </table>
