@@ -12,7 +12,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -22,32 +21,38 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @GetMapping("/form")
+    @GetMapping("/user/form")
     public String signInForm(Model model){
         model.addAttribute("memberForm",new MemberForm());
-        return "form";
+        return "user/form";
     }
 
-    @PostMapping("/form")
+    @PostMapping("/user/form")
     public String signIn(@Validated MemberForm memberForm, BindingResult result){
         System.out.println("memberForm = " + memberForm);
         System.out.println("result = " + result);
         if(result.hasErrors()){
             log.error("[signIn] validation logic");
             System.out.println("result = " + result);
-            return "form";
+            return "user/form";
         }
 
         memberService.join(memberForm);
         return "redirect:/";
     }
 
-    @GetMapping("/list")
+    @GetMapping("/user/list")
     public String list(Model model){
         List<Member> members = memberService.findAll();
         model.addAttribute("members",members);
 
-        return "list";
+        return "user/list";
+    }
+
+    @GetMapping("/user/login")
+    public String login(Model model){
+
+        return "user/login";
     }
 
 }
