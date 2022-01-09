@@ -72,8 +72,15 @@ public class MemberController {
             return "/user/login";
         }
         //성공 로직
-        Long id = memberService.findIdByUserId(userId);
-        session.setAttribute("user",id);
+        Member loginMember = memberService.findByUserId(userId);
+        session.setAttribute("loginMember",loginMember);
+
+        return "redirect:/";
+    }
+
+    @GetMapping("/user/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("loginMember");
 
         return "redirect:/";
     }

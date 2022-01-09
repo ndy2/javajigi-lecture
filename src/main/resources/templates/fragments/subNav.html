@@ -20,12 +20,18 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse2">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="/index">Posts</a></li>
-                <li><a href="/user/login" role="button">로그인</a></li>
-                <li><a href="/user/form" role="button">회원가입</a></li>
+                <li class="active">
+                    <p      th:unless="${session.loginMember == null}"
+                            th:text="${session.loginMember.userName}"/>
+                </li>
 
-                <li><a href="#" role="button">로그아웃</a></li>
-                <li><a href="#" role="button">개인정보수정</a></li>
+                <li class="active"><a href="/index">Posts</a></li>
+
+                <li><a th:if="${session.loginMember == null}" href="/user/login" role="button">로그인</a></li>
+                <li><a th:if="${session.loginMember == null}" href="/user/form" role="button">회원가입</a></li>
+
+                <li><a th:unless="${session.loginMember == null}" href="/user/logout" role="button">로그아웃</a></li>
+                <li><a th:unless="${session.loginMember == null}" href="#" role="button">개인정보수정</a></li>
             </ul>
         </div>
     </div>
@@ -34,3 +40,4 @@
 
 
 </html>
+

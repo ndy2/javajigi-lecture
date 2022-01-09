@@ -49,7 +49,7 @@ public class MemberService {
         return password.equals(member.getPassword());
     }
 
-    public Long findIdByUserId(String userId) {
-        return memberRepository.findByUserId(userId).getId();
+    public Member findByUserId(String userId) {
+        return memberRepository.findByUserId(userId);
     }
 }
