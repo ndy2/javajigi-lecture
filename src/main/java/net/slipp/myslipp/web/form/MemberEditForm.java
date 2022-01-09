@@ -8,12 +8,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 @ToString
-@Getter @Setter
-public class MemberForm {
-
-    @NotEmpty
-    private String userId;
-
+@Getter
+@Setter
+public class MemberEditForm {
     @NotEmpty
     private String password;
 
@@ -23,5 +20,4 @@ public class MemberForm {
     @NotEmpty
     @Email
     private String email;
-
 }

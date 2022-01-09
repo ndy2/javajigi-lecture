@@ -15,6 +15,11 @@
                     <label for="password">비밀번호</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
+
+                <div th:if="${loginError != null}" class="alert alert-danger">
+                    <h2>아이디/비밀번호를 확인하세요</h2>
+                </div>
+
                 <button type="submit" class="btn btn-success clearfix pull-right">로그인</button>
                 <div class="clearfix" />
             </form>
