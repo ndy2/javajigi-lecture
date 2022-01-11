@@ -7,15 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Slf4j
 @Controller
-@RequiredArgsConstructor
 public class WelcomeController {
 
 
-    @GetMapping
+    @GetMapping({"/", "/index"})
     public String home(){
         return "index";
     }
-
-
 
 }
