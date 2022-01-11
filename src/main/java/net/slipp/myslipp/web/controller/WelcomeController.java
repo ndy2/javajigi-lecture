@@ -13,7 +13,7 @@ public class WelcomeController {
 
     @GetMapping
     public String home(){
-        return "/index";
+        return "index";
     }
 
 
